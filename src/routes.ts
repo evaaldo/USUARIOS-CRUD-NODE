@@ -1,8 +1,8 @@
 import { Router } from "express"
 
-const router = Router()
+export const router = Router()
 
 router.get('/users')
 router.post('/users')
-router.put('/users')
-router.delete('/users')
+router.put('/users/:id')
+router.delete('/users/:id')
