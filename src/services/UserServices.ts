@@ -1,8 +1,14 @@
+import { sql } from "../database/db"
+
 export class UserServices {
 
     private idCounter: number = 1
 
     async getAllUsers() {
+
+        const users = sql`SELECT * FROM users`
+
+        return users
 
     }
 
