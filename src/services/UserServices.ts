@@ -18,7 +18,9 @@ export class UserServices {
 
     }
 
-    async updateUser(userId: any, name: string, password: string) {
+    async updateUser(userId: any, username: string, password: string) {
+
+        await sql`UPDATE users SET username = ${username}, password = ${password} WHERE id = ${userId}`
 
     }
 
