@@ -7,7 +7,7 @@ export class UserController {
 
     async getAllUsers( request: Request, response: Response ) {
 
-        const users = userServices.getAllUsers()
+        const users = await userServices.getAllUsers()
 
         return response.status(200).json(users)
 
@@ -17,7 +17,9 @@ export class UserController {
 
         const user = request.body
 
-        userServices.createUser(user.name, user.password)
+        console.log(user)
+
+        await userServices.createUser(user.username, user.password)
 
         return response.status(200).json({ mesage: "User created!" })
 
@@ -29,7 +31,7 @@ export class UserController {
 
         const user = request.body
 
-        userServices.updateUser(userId, user.name, user.password)
+        await userServices.updateUser(userId, user.username, user.password)
 
         return response.status(200).json({ message: "User updated!" })
 
@@ -39,7 +41,7 @@ export class UserController {
 
         const userId = request.params.id
 
-        userServices.deleteUser(userId)
+        await userServices.deleteUser(userId)
 
         return response.status(200).json({ message: "User deleted!" })
 
