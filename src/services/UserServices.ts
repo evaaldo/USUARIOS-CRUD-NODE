@@ -26,6 +26,8 @@ export class UserServices {
 
     async deleteUser(userId: any) {
 
+        await sql`DELETE FROM users WHERE id = ${userId}`
+
     }
 
 }
